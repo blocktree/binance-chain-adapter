@@ -1,4 +1,4 @@
-module github.com/blocktree/cosmos-adapter
+module github.com/blocktree/binance-chain-adapter
 
 go 1.12
 

@@ -1,7 +1,7 @@
 package openwtester
 
 import (
-	"github.com/blocktree/cosmos-adapter/binancechain"
+	"github.com/blocktree/binance-chain-adapter/binancechain"
 	"github.com/blocktree/openwallet/log"
 	"github.com/blocktree/openwallet/openw"
 )
