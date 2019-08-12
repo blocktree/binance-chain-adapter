@@ -6,6 +6,7 @@ import (
 	"github.com/blocktree/openwallet/openwallet"
 	"github.com/shopspring/decimal"
 	"math/big"
+	"time"
 )
 
 type AddrBalance struct {
@@ -40,6 +41,7 @@ func NewContractDecoder(wm *WalletManager) *ContractDecoder {
 
 func (decoder *ContractDecoder) GetTokenBalanceByAddress(contract openwallet.SmartContract, address ...string) ([]*openwallet.TokenBalance, error) {
 
+	time.Sleep(time.Millisecond * 500)
 	 var tokenBalanceList []*openwallet.TokenBalance
 
 	for i := 0; i < len(address); i++ {
@@ -49,7 +51,7 @@ func (decoder *ContractDecoder) GetTokenBalanceByAddress(contract openwallet.Sma
 
 		balance, err := decoder.wm.RpcClient.getBalance(address[i], contract.Address)
 		if err != nil {
-			log.Error("Get ONT balance of address [%v] failed with error : [%v]", address[i], err)
+			log.Error("Get balance of address [%v] failed with error : [%v]", address[i], err)
 			return nil, err
 		}
 		tokenBalance.Balance = &openwallet.Balance{
