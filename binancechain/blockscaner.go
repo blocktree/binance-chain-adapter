@@ -74,7 +74,7 @@ func NewBNBBlockScanner(wm *WalletManager) *BNBBlockScanner {
 	bs.extractingCH = make(chan struct{}, maxExtractingSize)
 	bs.wm = wm
 	bs.IsScanMemPool = false
-	bs.RescanLastBlockCount = 1
+	bs.RescanLastBlockCount = 5
 
 	//设置扫描任务
 	bs.SetTask(bs.ScanBlockTask)
@@ -824,15 +824,11 @@ func (bs *BNBBlockScanner) extractTransaction(trx *Transaction, result *ExtractR
 							tx.WxID = wxID
 							ed.Transaction = tx
 						}
-
 						result.Success = true
-
 					}
-
 					break
 				}
 			}
-
 		}
 
 		success = true
