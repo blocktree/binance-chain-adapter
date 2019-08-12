@@ -74,7 +74,7 @@ func NewBNBBlockScanner(wm *WalletManager) *BNBBlockScanner {
 	bs.extractingCH = make(chan struct{}, maxExtractingSize)
 	bs.wm = wm
 	bs.IsScanMemPool = false
-	bs.RescanLastBlockCount = 5
+	bs.RescanLastBlockCount = 10
 
 	//设置扫描任务
 	bs.SetTask(bs.ScanBlockTask)
