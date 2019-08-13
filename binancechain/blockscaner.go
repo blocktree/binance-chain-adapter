@@ -786,7 +786,7 @@ func (bs *BNBBlockScanner) extractTransaction(trx *Transaction, result *ExtractR
 						}
 
 						for _, from := range detail.From {
-							toArray = append(toArray, from.Address+":"+strconv.FormatUint(from.Amount, 10))
+							fromArray = append(fromArray, from.Address+":"+strconv.FormatUint(from.Amount, 10))
 						}
 
 						ed := result.extractData[denom+":"+sourceKey]
